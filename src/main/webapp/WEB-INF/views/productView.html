@@ -101,6 +101,9 @@
             <button type="submit" class="btn-delete">삭제</button>
         </form>
     </div>
-
+    <footer style="margin-top:24px; font-size:14px; color:#555;">
+        <p th:text="${'실습 수행 일시: ' + #temporals.format(#temporals.createNow(), 'yyyy-MM-dd HH:mm:ss') + ' | 학번: 2171140 | 성명: 박세웅'}">
+        </p>
+    </footer>
 </body>
 </html>

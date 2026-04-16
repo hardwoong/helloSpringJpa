@@ -8,7 +8,8 @@
 <body>
 
 <h1>카테고리 목록</h1>
-
+<p th:if="${successMessage}" th:text="${successMessage}"></p>
+<p th:if="${errorMessage}" th:text="${errorMessage}"></p>
 <a th:href="@{/categories/create}">+ 카테고리 등록</a>
 
 <table>
@@ -20,6 +21,15 @@
     </tr>
     </thead>
     <tbody>
+        <tr th:each="cat : ${categories}">
+            <td th:text="${cat.id}">1</td>
+            <td th:text="${cat.name}">카테고리</td>
+            <td>
+                <form th:action="@{/categories/{id}/delete(id=${cat.id})}" method="post">
+                    <button type="submit">삭제</button>
+                </form>
+            </td>
+        </tr>
     </tbody>
 </table>
 
